@@ -12,8 +12,8 @@
 
 <main>
   <Header/>
-  <main class="bg-gray-300 h-screen">
-    <Tabs {items} {active} on:change={tabChange}/>
+  <main class="min-h-screen">
+    <Tabs {items} {active} on:change={tabChange} />
   </main>
   <Footer/>
 </main>
