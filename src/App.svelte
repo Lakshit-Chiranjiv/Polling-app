@@ -1,8 +1,7 @@
 <script>
-
+  import Header from "./components/Header.svelte";
 </script>
 
 <main>
-  Svelte
-  <p class="text-red-500">Svelte padho re</p>
+  <Header/>
 </main>
