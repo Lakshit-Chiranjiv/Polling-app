@@ -1,5 +1,5 @@
 <script>
-    import PollingBaseLogo from '../assets/polling-base-logo.svg';
+    import PollingBaseLogo from '../assets/pollingBase.png';
 </script>
 
 <main>
