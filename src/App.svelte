@@ -16,8 +16,21 @@
   <Header/>
   <main class="min-h-screen">
     <Tabs {items} {active} on:change={tabChange} />
-    <!-- <CreateForm/> -->
-    <!-- <About/> -->
+    {#if active === "Live Polls"}
+      <h1 class="text-3xl font-bold my-6">Live Polls</h1>
+      <p class="text-slate-600 mb-4">
+        This is where you can see all the live polls.
+      </p>
+    {:else if active === "Past Polls"}
+      <h1 class="text-3xl font-bold my-6">Past Polls</h1>
+      <p class="text-slate-600 mb-4">
+        This is where you can see all the past polls.
+      </p>
+    {:else if active === "Create Poll"}
+      <CreateForm/>
+    {:else if active === "About Me"}
+      <About/>
+    {/if}
   </main>
   <Footer/>
 </main>
