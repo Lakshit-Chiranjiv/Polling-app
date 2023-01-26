@@ -9,7 +9,7 @@
 </script>
 
 <main>
-    <form class="bg-slate-800 my-8 rounded px-12 py-12" on:submit|preventDefault={formSubmitHandler}>
+    <form class="bg-slate-800 my-12 rounded px-12 py-12" on:submit|preventDefault={formSubmitHandler}>
         <h1 class="text-3xl font-bold mb-4 text-white">Create Poll</h1>
         <div class="flex justify-around items-start py-4 gap-12">
             <div class="flex-1">
