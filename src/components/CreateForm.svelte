@@ -1,9 +1,7 @@
 <script>
-    let pollCount = 2;
-    let prevPollOptions = ['',''];
     let pollName = "";
     let pollDescription = "";
-    let pollOptions = [...Array(pollCount).keys()].map((i) => prevPollOptions[i] || "")
+    let pollOptions = ['','']
 
     const formSubmitHandler = () => {
         console.log(pollName, pollDescription, pollOptions);
@@ -30,7 +28,7 @@
                     <input type="text" id="pollOptions" name="pollOptions" placeholder="Poll Option" class="border-gray-400 outline-0 border rounded text-sm h-12 p-2 w-full mb-4" bind:value={pollOptions[i]}/>
                 {/each}
         
-                <button type="button" class="text-white bg-orange-500 px-4 py-2 rounded my-4 text-lg font-bold">
+                <button type="button" class="text-white bg-orange-500 px-4 py-2 rounded my-4 text-lg font-bold" on:click={() => pollOptions = [...pollOptions, '']}>
                     +
                 </button>
             </div>
