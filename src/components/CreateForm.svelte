@@ -6,7 +6,27 @@
     let showError = false
 
     const formSubmitHandler = () => {
-        console.log(pollName, pollDescription, pollOptions);
+        if(pollName === '' || pollDescription === '' || pollOptions.includes('')) {
+            if(pollName === '') {
+                error = 'Poll Name is required'
+            }
+            else if(pollDescription === '') {
+                error = 'Poll Description is required'
+            }
+            else if(pollOptions.includes('')) {
+                error = 'Poll Options are required'
+            }
+            showError = true
+            return
+        }
+        else{
+            error = ''
+            showError = false
+            console.log(pollName, pollDescription, pollOptions);
+            pollName = ''
+            pollDescription = ''
+            pollOptions = ['','']
+        }
     }
 </script>
 
@@ -36,7 +56,11 @@
             </div>
         </div>
 
-        <p class="text-center text-white my-12 bg-red-500 rounded py-4">Error Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, repudiandae!</p>
+        {#if showError}
+            <div class="bg-red-500 text-white text-center p-4 rounded mb-4">
+                {error}
+            </div>
+        {/if}
 
         <div class="flex justify-center w-full">
             <button type="submit" class="w-[50%] bg-orange-500 text-white py-2 rounded">Create Poll</button>
