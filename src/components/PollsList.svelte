@@ -3,6 +3,7 @@
 
     export let polls = [
         {
+            id: '1',
             question: "What is your favorite color?",
             description: "This is a description of the poll",
             options: ["Red", "Blue", "Green", "Yellow"],
@@ -10,6 +11,7 @@
             pollTimeLeft: 1000,
         },
         {
+            id: '2',
             question: "What is your favorite animal?",
             description: "This is a description of the poll",
             options: ["Dog", "Cat", "Bird", "Fish"],
@@ -17,6 +19,7 @@
             pollTimeLeft: 1000,
         },
         {
+            id: '3',
             question: "What is your favorite food?",
             description: "This is a description of the poll",
             options: ["Pizza", "Burger", "Sandwich", "Pasta"],
@@ -24,6 +27,7 @@
             pollTimeLeft: 1000,
         },
         {
+            id: '4',
             question: "What is your favorite drink?",
             description: "This is a description of the poll",
             options: ["Coke", "Pepsi", "Sprite", "Fanta"],
@@ -31,6 +35,7 @@
             pollTimeLeft: 1000,
         },
         {
+            id: '5',
             question: "What is your favorite fruit?",
             description: "This is a description of the poll",
             options: ["Apple", "Orange", "Banana", "Grapes"],
@@ -38,6 +43,7 @@
             pollTimeLeft: 1000,
         },
         {
+            id: '6',
             question: "What is your favorite movie?",
             description: "This is a description of the poll",
             options: ['"The Shawshank Redemption"', '"The Godfather"', '"The Godfather: Part II"', '"The Dark Knight"'],
