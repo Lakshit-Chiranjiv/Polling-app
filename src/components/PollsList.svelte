@@ -5,73 +5,45 @@
         {
             question: "What is your favorite color?",
             description: "This is a description of the poll",
-            options: ["Red", "Blue", "Green", "Yellow"]
+            options: ["Red", "Blue", "Green", "Yellow"],
+            votes: [0, 20, 30, 40],
+            pollTimeLeft: 1000,
         },
         {
             question: "What is your favorite animal?",
             description: "This is a description of the poll",
-            options: ["Dog", "Cat", "Bird", "Fish"]
+            options: ["Dog", "Cat", "Bird", "Fish"],
+            votes: [10, 20, 30, 40],
+            pollTimeLeft: 1000,
         },
         {
             question: "What is your favorite food?",
             description: "This is a description of the poll",
-            options: ["Pizza", "Burger", "Tacos", "Salad"]
+            options: ["Pizza", "Burger", "Sandwich", "Pasta"],
+            votes: [10, 20, 30, 40],
+            pollTimeLeft: 1000,
         },
         {
             question: "What is your favorite drink?",
             description: "This is a description of the poll",
-            options: ["Water", "Soda", "Juice", "Milk"]
-        },
-        {
-            question: "What is your favorite movie?",
-            description: "This is a description of the poll",
-            options: ["Star Wars", "Harry Potter", "Lord of the Rings", "The Matrix"]
-        },
-        {
-            question: "What is your favorite TV show?",
-            description: "This is a description of the poll",
-            options: ["The Office", "Friends", "Breaking Bad", "Game of Thrones"]
-        },
-        {
-            question: "What is your favorite video game?",
-            description: "This is a description of the poll",
-            options: ["Minecraft", "Fortnite", "Call of Duty", "League of Legends"]
-        },
-        {
-            question: "What is your favorite sport?",
-            description: "This is a description of the poll",
-            options: ["Basketball", "Football", "Baseball", "Soccer"]
-        },
-        {
-            question: "What is your favorite season?",
-            description: "This is a description of the poll",
-            options: ["Spring", "Summer", "Fall", "Winter"]
-        },
-        {
-            question: "What is your favorite holiday?",
-            description: "This is a description of the poll",
-            options: ["Christmas", "Thanksgiving", "Halloween", "New Years"]
+            options: ["Coke", "Pepsi", "Sprite", "Fanta"],
+            votes: [10, 20, 30, 40],
+            pollTimeLeft: 1000,
         },
         {
             question: "What is your favorite fruit?",
             description: "This is a description of the poll",
-            options: ["Apple", "Banana", "Orange", "Strawberry"]
+            options: ["Apple", "Orange", "Banana", "Grapes"],
+            votes: [10, 20, 30, 40],
+            pollTimeLeft: 1000,
         },
         {
-            question: "What is your favorite vegetable?",
+            question: "What is your favorite movie?",
             description: "This is a description of the poll",
-            options: ["Carrot", "Broccoli", "Potato", "Tomato"]
-        },
-        {
-            question: "What is your favorite candy?",
-            description: "This is a description of the poll",
-            options: ["Sour Patch Kids", "Skittles", "M&Ms", "Reese's"]
-        },
-        {
-            question: "What is your favorite ice cream flavor?",
-            description: "This is a description of the poll",
-            options: ["Vanilla", "Chocolate", "Strawberry", "Mint Chocolate Chip"]
-        },
+            options: ['"The Shawshank Redemption"', '"The Godfather"', '"The Godfather: Part II"', '"The Dark Knight"'],
+            votes: [10, 20, 30, 40],
+            pollTimeLeft: 1000,
+        }
     ]
 </script>
 
