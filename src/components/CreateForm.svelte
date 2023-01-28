@@ -2,6 +2,8 @@
     let pollName = "";
     let pollDescription = "";
     let pollOptions = ['','']
+    let error = ''
+    let showError = false
 
     const formSubmitHandler = () => {
         console.log(pollName, pollDescription, pollOptions);
