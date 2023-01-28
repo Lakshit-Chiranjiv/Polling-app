@@ -10,10 +10,12 @@
     <p class="text-slate-600 mb-4">
         {poll.description}
     </p>
-    <div class="flex flex-col gap-1">
+    <div class="flex flex-col gap-2">
         {#each poll.options as option, i}
-            <button class="bg-orange-200 py-2 rounded border-l-emerald-400 border-l-4" style={`width: ${percentages[i]};`}>{option}</button>
-            <br>
+            <button class="rounded border-l-emerald-400 border-l-4 relative">
+                <div class="bg-orange-100 h-full absolute box-border rounded-r -z-20" style={`width: ${percentages[i]};`}></div>
+                <p class="my-2">{option} - {votes[i]}</p>
+            </button>
         {/each}
     </div>
     <p class="text-right">Total votes : {totalVotes}</p>
