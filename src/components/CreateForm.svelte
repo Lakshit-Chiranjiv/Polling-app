@@ -34,6 +34,8 @@
             </div>
         </div>
 
+        <p class="text-center text-white my-12 bg-red-500 rounded py-4">Error Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, repudiandae!</p>
+
         <div class="flex justify-center w-full">
             <button type="submit" class="w-[50%] bg-orange-500 text-white py-2 rounded">Create Poll</button>
         </div>
