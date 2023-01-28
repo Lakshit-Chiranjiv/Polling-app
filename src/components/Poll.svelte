@@ -18,7 +18,7 @@
             </button>
         {/each}
     </div>
-    <p class="text-right">Total votes : {totalVotes}</p>
+    <p class="text-right mt-4">Total votes : {totalVotes}</p>
 </main>
 
 <style>
