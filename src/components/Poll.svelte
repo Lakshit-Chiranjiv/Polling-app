@@ -1,8 +1,17 @@
 <script>
+    import { createEventDispatcher } from "svelte";
+
+    const dispatch = createEventDispatcher();
+
     export let poll;
-    let votes = poll.votes;
-    let totalVotes = votes.reduce((a, b) => a + b, 0);
-    let percentages = votes.map(vote => `${vote / totalVotes * 100}%`);
+    $: votes = poll.votes;
+    $: totalVotes = votes.reduce((a, b) => a + b, 0);
+    $: percentages = votes.map(vote => `${vote / totalVotes * 100}%`);
+
+    function optionClick(index, pollId) {
+        dispatch("vote", { index, pollId });
+    }
+
 </script>
 
 <main class="p-8 border-2 rounded">
@@ -12,7 +21,7 @@
     </p>
     <div class="flex flex-col gap-2">
         {#each poll.options as option, i}
-            <button class="rounded border-l-emerald-400 border-l-4 relative">
+            <button class="rounded border-l-emerald-400 border-l-4 relative" on:click={() => optionClick(i,poll.id)}>
                 <div class="bg-orange-100 h-full absolute box-border rounded-r -z-20" style={`width: ${percentages[i]};`}></div>
                 <p class="my-2">{option} - {votes[i]}</p>
             </button>
