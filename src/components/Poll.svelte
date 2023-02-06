@@ -1,7 +1,8 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+    // import { createEventDispatcher } from "svelte";
+    import PollStore from "../stores/PollStore";
 
-    const dispatch = createEventDispatcher();
+    // const dispatch = createEventDispatcher();
 
     export let poll;
     $: votes = poll.votes;
@@ -9,7 +10,13 @@
     $: percentages = votes.map(vote => `${vote / totalVotes * 100}%`);
 
     function optionClick(index, pollId) {
-        dispatch("vote", { index, pollId });
+        // dispatch("vote", { index, pollId });
+        PollStore.update(polls => {
+            let copiedPolls = [...polls];
+            let upvotedPoll = copiedPolls.find(poll => poll.id === pollId);
+            upvotedPoll.votes[index]++;
+            return copiedPolls;
+        })
     }
 
 </script>
