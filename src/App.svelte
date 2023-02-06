@@ -11,6 +11,10 @@
   const tabChange = (e) => {
     active = e.detail;
   };
+
+  const pollCreated = (e) => {
+    active = "Live Polls";
+  };
 </script>
 
 <main>
@@ -30,7 +34,7 @@
       </p>
       <PollsList/>
     {:else if active === "Create Poll"}
-      <CreateForm/>
+      <CreateForm on:pollCreated={pollCreated}/>
     {:else if active === "About Me"}
       <About/>
     {/if}
