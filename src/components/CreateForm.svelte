@@ -1,4 +1,9 @@
 <script>
+    import { createEventDispatcher } from "svelte";
+    import PollStore from "../stores/PollStore";
+
+    const dispatch = createEventDispatcher();
+
     let pollName = "";
     let pollDescription = "";
     let pollOptions = ['','']
@@ -23,9 +28,20 @@
             error = ''
             showError = false
             console.log(pollName, pollDescription, pollOptions);
+            PollStore.update(polls => {
+                return [...polls, {
+                    id: (polls.length + 1).toString(),
+                    question: pollName,
+                    description: pollDescription,
+                    options: pollOptions,
+                    votes: pollOptions.map(() => 0),
+                    pollTimeLeft: 1000
+                }]
+            })
             pollName = ''
             pollDescription = ''
             pollOptions = ['','']
+            dispatch('pollCreated')
         }
     }
 </script>
