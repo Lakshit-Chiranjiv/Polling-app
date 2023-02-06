@@ -45,3 +45,13 @@ If you have state that's important to retain within a component, consider creati
 import { writable } from 'svelte/store'
 export default writable(0)
 ```
+
+
+### Todos
+
+- Delete Poll Functionality
+- Poll Timer Functionality
+- Color scheme for poll card based on time left
+- Allow users to choose colors for poll options
+- set limit on number of options
+- separate completed polls from active polls
