@@ -8,13 +8,13 @@
     //     polls = value;
     // })
 
-    const handleVote = (e) => {
-        const { index, pollId } = e.detail;
-        let copiedPolls = [...polls];
-        let upvotedPoll = copiedPolls.find(poll => poll.id === pollId);
-        upvotedPoll.votes[index]++;
-        polls = copiedPolls;
-    }
+    // const handleVote = (e) => {
+    //     const { index, pollId } = e.detail;
+    //     let copiedPolls = [...polls];
+    //     let upvotedPoll = copiedPolls.find(poll => poll.id === pollId);
+    //     upvotedPoll.votes[index]++;
+    //     polls = copiedPolls;
+    // }
 
     // onDestroy(() => {
     //     unsub();
@@ -23,7 +23,7 @@
 
 <main class="grid grid-cols-2 gap-4 my-8">
     {#each $PollStore as poll}
-        <Poll {poll} on:vote={handleVote} />
+        <Poll {poll} />
     {/each}
 </main>
 
