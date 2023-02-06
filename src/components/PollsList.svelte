@@ -4,9 +4,9 @@
   import { onDestroy } from "svelte";
     let polls = []
 
-    const unsub = PollStore.subscribe(value => {
-        polls = value;
-    })
+    // const unsub = PollStore.subscribe(value => {
+    //     polls = value;
+    // })
 
     const handleVote = (e) => {
         const { index, pollId } = e.detail;
@@ -16,13 +16,13 @@
         polls = copiedPolls;
     }
 
-    onDestroy(() => {
-        unsub();
-    })
+    // onDestroy(() => {
+    //     unsub();
+    // })
 </script>
 
 <main class="grid grid-cols-2 gap-4 my-8">
-    {#each polls as poll}
+    {#each $PollStore as poll}
         <Poll {poll} on:vote={handleVote} />
     {/each}
 </main>
