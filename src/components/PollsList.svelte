@@ -1,6 +1,7 @@
 <script>
   import Poll from "./Poll.svelte";
   import PollStore from "../stores/PollStore";
+  import { onDestroy } from "svelte";
     let polls = []
 
     const unsub = PollStore.subscribe(value => {
@@ -14,6 +15,10 @@
         upvotedPoll.votes[index]++;
         polls = copiedPolls;
     }
+
+    onDestroy(() => {
+        unsub();
+    })
 </script>
 
 <main class="grid grid-cols-2 gap-4 my-8">
