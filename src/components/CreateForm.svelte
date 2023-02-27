@@ -67,10 +67,11 @@
                     <input type="text" id="pollOptions" name="pollOptions" placeholder="Poll Option" class="border-gray-400 outline-0 border rounded text-sm h-12 p-2 w-full mb-4" bind:value={pollOptions[i]}/>
                 {/each}
         
-                <button type="button" class="text-white bg-orange-500 px-4 py-2 rounded my-4 text-lg font-bold" on:click={() => {
-                    optionCount++
-                    if(optionCount <= 5) {
+                <button type="button" class="text-white bg-orange-500 px-4 py-2 rounded my-4 mr-4 text-lg font-bold" on:click={() => {
+                    if(optionCount < 5) {
                         pollOptions = [...pollOptions, '']
+                        optionCount++
+                        showError = false   
                     }
                     else {
                         error = 'You can only add 5 options'
@@ -78,6 +79,20 @@
                     }
                 }}>
                     +
+                </button>
+                <button type="button" class="text-white bg-orange-500 px-4 py-2 rounded my-4 ml-4 text-lg font-bold" on:click={() => {
+                    if(optionCount > 2) {
+                        let slicedPollOptions = pollOptions.slice(0, pollOptions.length - 1)
+                        pollOptions = [...slicedPollOptions]
+                        optionCount--
+                        showError = false
+                    }
+                    else {
+                        error = 'Minimum 2 options needed'
+                        showError = true
+                    }
+                }}>
+                    -
                 </button>
             </div>
         </div>
