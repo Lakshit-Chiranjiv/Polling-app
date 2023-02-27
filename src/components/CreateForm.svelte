@@ -7,6 +7,8 @@
     let pollName = "";
     let pollDescription = "";
     let pollOptions = ['','']
+    let pollDurationHours = ''
+    let pollDurationMinutes = ''
     let error = ''
     let showError = false
     let optionCount = 2
@@ -52,17 +54,23 @@
         <h1 class="text-3xl font-bold mb-4 text-white">Create Poll</h1>
         <div class="flex justify-around items-start py-4 gap-12">
             <div class="flex-1">
-                <label for="pollName" class="text-sm text-white">Poll Name</label><br>
+                <label for="pollName" class="text-sm text-white">Poll Name <span class="text-red-600">*</span> </label><br>
                 <input type="text" id="pollName" name="pollName" placeholder="Poll Name" class="border-gray-400 outline-0 border rounded text-sm h-12 p-2 w-full mb-4" bind:value={pollName}/>
                 <br>
         
-                <label for="pollDescription" class="text-sm text-white">Poll Description</label><br>
+                <label for="pollDescription" class="text-sm text-white">Poll Description <span class="text-red-600">*</span> </label><br>
                 <textarea id="pollDescription" name="pollDescription" placeholder="Poll Description" class="border-gray-400 outline-0 border rounded text-sm h-44 p-2 w-full mb-4" bind:value={pollDescription}/>
                 <br>
+
+                <label for="pollDuration" class="text-sm text-white">Poll Duration(Default: 10m)</label><br>
+                <div class="flex gap-4">
+                    <input type="number" id="pollDuration" name="pollDuration" placeholder="No. of Hours" class="border-gray-400 outline-0 border rounded text-sm h-12 p-2 w-full mb-4" max="23" min="0" bind:value={pollDurationHours}/>
+                    <input type="number" id="pollDuration" name="pollDuration" placeholder="No. of Minutes" class="border-gray-400 outline-0 border rounded text-sm h-12 p-2 w-full mb-4" max="59" min="10" bind:value={pollDurationMinutes}/>
+                </div>
             </div>
 
             <div class="flex-1">
-                <label for="pollOptions" class="text-sm text-white">Poll Options</label><br>
+                <label for="pollOptions" class="text-sm text-white">Poll Options <span class="text-red-600">*</span> </label><br>
                 {#each pollOptions as option, i}
                     <input type="text" id="pollOptions" name="pollOptions" placeholder="Poll Option" class="border-gray-400 outline-0 border rounded text-sm h-12 p-2 w-full mb-4" bind:value={pollOptions[i]}/>
                 {/each}
