@@ -1,6 +1,7 @@
 <script>
     // import { createEventDispatcher } from "svelte";
     import PollStore from "../stores/PollStore";
+    import delIcon from '../assets/del.png'
 
     // const dispatch = createEventDispatcher();
 
@@ -34,7 +35,13 @@
             </button>
         {/each}
     </div>
-    <p class="text-right mt-4">Total votes : {totalVotes}</p>
+    <div class="flex justify-between items-center mt-8">
+        <p>Time Left : 2h</p>
+        <p>Total votes : {totalVotes}</p>
+        <button class="bg-red-600 p-2 rounded">
+            <img src={delIcon} alt="delete" class="w-4 h-4"/>
+        </button>
+    </div>
 </main>
 
 <style>
