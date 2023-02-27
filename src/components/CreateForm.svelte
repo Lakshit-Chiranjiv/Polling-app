@@ -7,8 +7,8 @@
     let pollName = "";
     let pollDescription = "";
     let pollOptions = ['','']
-    let pollDurationHours = ''
-    let pollDurationMinutes = ''
+    let pollDurationHours = 0
+    let pollDurationMinutes = 0
     let error = ''
     let showError = false
     let optionCount = 2
@@ -31,6 +31,19 @@
             error = ''
             showError = false
             console.log(pollName, pollDescription, pollOptions);
+            let pollDuration = 0
+
+            if(pollDurationHours > 0) {
+                pollDuration += pollDurationHours * 60 * 60
+            }
+            if(pollDurationMinutes > 0) {
+                pollDuration += pollDurationMinutes * 60
+            }
+
+            if(pollDuration === 0) {
+                pollDuration = 600
+            }
+
             PollStore.update(polls => {
                 return [...polls, {
                     id: (polls.length + 1).toString(),
@@ -38,12 +51,14 @@
                     description: pollDescription,
                     options: pollOptions,
                     votes: pollOptions.map(() => 0),
-                    pollTimeLeft: 1000
+                    pollTimeLeft: (pollDurationHours * 60 * 60 * 1000) + (pollDurationMinutes * 60 * 1000)
                 }]
             })
             pollName = ''
             pollDescription = ''
             pollOptions = ['','']
+            pollDurationHours = 0
+            pollDurationMinutes = 0
             dispatch('pollCreated')
         }
     }
@@ -62,7 +77,7 @@
                 <textarea id="pollDescription" name="pollDescription" placeholder="Poll Description" class="border-gray-400 outline-0 border rounded text-sm h-44 p-2 w-full mb-4" bind:value={pollDescription}/>
                 <br>
 
-                <label for="pollDuration" class="text-sm text-white">Poll Duration(Default: 10m)</label><br>
+                <label for="pollDuration" class="text-sm text-white">Poll Duration (Default: 10m) (Format: hh-mm)</label><br>
                 <div class="flex gap-4">
                     <input type="number" id="pollDuration" name="pollDuration" placeholder="No. of Hours" class="border-gray-400 outline-0 border rounded text-sm h-12 p-2 w-full mb-4" max="23" min="0" bind:value={pollDurationHours}/>
                     <input type="number" id="pollDuration" name="pollDuration" placeholder="No. of Minutes" class="border-gray-400 outline-0 border rounded text-sm h-12 p-2 w-full mb-4" max="59" min="10" bind:value={pollDurationMinutes}/>
