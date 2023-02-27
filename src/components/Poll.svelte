@@ -37,7 +37,7 @@
     </div>
     <div class="flex justify-between items-center mt-8">
         <p>Time Left : 2h</p>
-        <p>Total votes : {totalVotes}</p>
+        <p class="bg-green-300 p-2 px-4 rounded">Total votes : {totalVotes}</p>
         <button class="bg-red-600 p-2 rounded" on:click={() => {
             PollStore.update(polls => {
                 return polls.filter(p => p.id !== poll.id)
