@@ -9,6 +9,7 @@
     let pollOptions = ['','']
     let error = ''
     let showError = false
+    let optionCount = 2
 
     const formSubmitHandler = () => {
         if(pollName === '' || pollDescription === '' || pollOptions.includes('')) {
@@ -66,7 +67,16 @@
                     <input type="text" id="pollOptions" name="pollOptions" placeholder="Poll Option" class="border-gray-400 outline-0 border rounded text-sm h-12 p-2 w-full mb-4" bind:value={pollOptions[i]}/>
                 {/each}
         
-                <button type="button" class="text-white bg-orange-500 px-4 py-2 rounded my-4 text-lg font-bold" on:click={() => pollOptions = [...pollOptions, '']}>
+                <button type="button" class="text-white bg-orange-500 px-4 py-2 rounded my-4 text-lg font-bold" on:click={() => {
+                    optionCount++
+                    if(optionCount <= 5) {
+                        pollOptions = [...pollOptions, '']
+                    }
+                    else {
+                        error = 'You can only add 5 options'
+                        showError = true
+                    }
+                }}>
                     +
                 </button>
             </div>
